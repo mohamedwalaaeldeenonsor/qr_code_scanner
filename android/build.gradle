@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 
 android {
     amespace 'net.touchcapture.qr.flutterqr'
-    compileSdk 33
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
