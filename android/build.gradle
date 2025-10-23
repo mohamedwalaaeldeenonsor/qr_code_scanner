@@ -14,28 +14,20 @@ buildscript {
     }
 }
 
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
     namespace 'net.touchcapture.qr.flutterqr'
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-    defaultConfig {
-        // minSdkVersion is determined by Native View.
-        minSdkVersion 20
-        targetSdkVersion 33
 
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -45,15 +37,17 @@ android {
     }
 
     compileOptions {
-        // Flag to enable support for the new language APIs
+        // Enable support for new Java language APIs
         coreLibraryDesugaringEnabled true
-        // Sets Java compatibility to Java 11
+        // Use Java 11 compatibility
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-    if (project.android.hasProperty('namespace')) {
-        namespace 'net.touchcapture.qr.flutterqr'
-    }
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
 
 dependencies {
